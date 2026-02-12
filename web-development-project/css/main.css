@@ -1,0 +1,1921 @@
+@font-face {
+    font-family: "Future Forces";
+    src: url(../assets/font/Future-Forces.ttf) format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0; /* remove default 8px margin set by the browser's stylesheet */
+}
+
+html {
+    font-size: 62.5%; /* changed to 62.5% instead of 16px (browsers' default and is adjustable by the user) as it makes rem sizings' calculations easier SO NOW 0.625 x 16px = 10px */
+}
+
+h1, h2, h3, h4, h6, span, li, a, button, .accordion-label,
+.day-option .circle, .day-option .price, #datepicker, .flatpickr-calendar {
+    font-family: "Future Forces";
+}
+
+p, li, .footer-info a, .ride-location-pin-icon {
+    font-family: "Oswald", sans-serif;
+}
+
+p, li {
+    font-weight: 400;
+}  
+
+p {
+    line-height: 1.15; /* 1.5 for rides page */
+}
+
+li {
+    list-style-type: none;
+    line-height: 1.5;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+#bg-gradient {
+    background-image: linear-gradient(to top right, lightblue, blue);
+    background-attachment: fixed; /* Make the background image static */
+}
+
+.homepage-sect-heading, .pm-page-sect-heading {
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.9); 
+}
+
+/* ---------- Navigation Bar ---------- */
+
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+    background-color: rgba(0, 0, 32, 0.86);
+}
+
+#navbar .container {
+    width: 100%;
+}
+
+#navbar .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar a {
+    z-index: 1;
+    cursor: pointer;
+}
+
+#navbar .logo img {
+    width: 10rem;
+    height: 10rem;
+}
+
+#navbar .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar ul {
+    display: none;
+}
+
+#navbar ul li {
+    padding: 1rem;
+}
+
+#navbar ul li a:hover{
+    color: #E40E44;
+    transition: 0.3s;
+}
+
+/* ---------- Hamburger Menu ---------- */
+
+.menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 1rem;
+}
+
+.menu::before, .menu .close, .menu::after {
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.menu::before, .menu::after {
+    content: "";
+}
+
+.menu::before, .menu .close {
+    margin-bottom: 1rem;
+}
+
+.menu::before {
+    top: 0rem;
+}
+
+.menu .close {
+    top: 2rem;
+    bottom: 0rem;
+    appearance: none; /* removes default appearance of checkbox */
+    outline: none; /* remove outline of checkbox when tab key is used on page */
+    cursor: pointer;
+}
+
+.menu::after {
+    top: 4rem;
+    bottom: 0;
+}
+
+/* ---------- When Hamburger Menu Checkbox Is Checked ---------- */
+
+.menu:has(input:checked)::before, .menu:has(input:checked)::after {
+    top: 2rem;
+}
+
+.menu:has(input:checked)::before {
+    transform: rotate(45deg);
+}
+
+.menu:has(input:checked) .close {
+    display: none;
+}
+
+.menu:has(input:checked)::after {
+    transform: rotate(-45deg);
+}
+
+/* ---------- Home Page ---------- */
+
+.homepage-sect-heading {
+    padding: 9% 3% 3%;
+    font-size: 3.5rem;
+}
+
+article .text p, .accordion-content p {
+    font-size: 1rem;
+}
+
+/* Background Video In Header */
+
+#video-header {
+    position: relative;
+    height: 100vh;
+}
+
+.video-container {
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.video-container .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    flex: 1 0 100%;
+    object-fit: cover;
+}
+
+.homepage-text {
+    color: azure;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 35.5rem;
+    z-index: 2;
+}
+
+.homepage-text h1 {
+    color: white;
+    font-size: 5rem;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.book-link {
+    display: inline-block;
+    color: azure;
+    border: 0.2rem solid azure;
+    padding: 1.3rem 3.5rem;
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: transparent;
+    position: relative;
+    box-shadow: 0rem 0.4rem 0.8rem 0rem rgba(0, 0, 0, 0.2), 0rem 0.6rem 2rem 0rem rgba(0, 0, 0, 0.19);
+}
+
+.book-link:hover {
+    border: 0.2rem solid rgba(228, 14, 68, 1);
+    background: rgba(228, 14, 68, 1);
+    transition: 1s;
+}
+
+/* Main Attractions Section */
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start (default) pushes flex items towards the start of the .grid container's main-axis */
+    flex-wrap: nowrap;
+    height: 57%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0rem 1.4rem;
+}
+
+article {
+    flex: 0 0 auto;
+    box-shadow: 0.2rem 0.2rem 0.6rem 0rem rgba(0,0,0,0.3);
+    border-radius: 2rem;
+    background-color: black;
+    width: 100%;
+    margin: 0rem 1.4rem; /* each article card is separated by a gap of 28px */
+}
+
+.ridescard2 {
+    left: 38rem;
+}
+
+.ridescard3 {
+    left: 76rem;
+}
+
+article div {
+    background-position: center;
+    background-size: cover; /* make image cover the entire container size EVEN IF the image stretches OR gets cut off at the edges */
+    padding-top: 56%; /* to maintain aspect ratio across every screen size, use this formula: (height / width) * 100% */
+    border-radius: 1.5rem 1.5rem 0rem 0rem;
+}
+
+article .img1 {
+    background-image: url("../assets/img/ride1-carouseloffeels-thumbnail.jpg");
+}
+  
+article .img2 {
+    background-image: url("../assets/img/ride2-towerofheight-thumbnail.jpg");
+}
+  
+article .img3 {
+    background-image: url("../assets/img/ride3-circleoflife-thumbnail.jpg");
+}
+
+article .text {
+    display: flex;
+    flex-direction: column;
+    height: 22.2rem;
+    padding: 0 2rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+article .text h4 {
+    font-size: 2.6rem;
+    margin: 1rem;
+    text-transform: capitalize;
+}
+  
+article .text p {
+    color: white;
+    margin-bottom: auto;
+    font-size: 2rem;
+}
+
+article .text a {
+    display: block;
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0.4rem 0.8rem 1.4rem 0rem darkblue;
+    border-radius: 0.6rem;
+    color: white;
+    background-color: grey;
+    text-transform: capitalize;
+}
+
+article .text a:hover {
+    background-color: rgba(228,14,68,1);
+    transition: 1s; 
+}
+  
+
+/* Our Visitor Reviews Section */
+
+.reviews {
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem auto 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+
+.review-box {
+    background-color: white;
+    border: 0.1rem solid #DDDDDD;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin: 1rem;
+}
+
+.review-box img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-bottom: 0.6rem;
+    vertical-align: middle;
+}
+
+.review-box h6 {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.review-box p {
+    color: black;
+    font-size: 2rem;
+}
+
+.review-box:hover {
+  transform: scale(1.05);
+}
+
+/* Frequently Asked Questions Section */
+
+.accordion-container {
+    width: 35rem;
+    margin: 1.6rem auto;/*was auto*/
+    border: 0.1rem solid #CCCCCC;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-size: 1.2rem;
+}
+
+.faqcheckb {
+    display: none;
+}
+
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #F1F1F1;
+    border-bottom: 0.1rem solid #CCCCCC;
+    font-weight: 700;
+}
+
+.accordion-content {
+    display: none;
+    padding: 1rem;
+}
+
+.accordion-content p {
+    color: black;
+}
+
+.faqcheckb:checked ~ .accordion-content {
+    display: block;
+}
+
+/* ---------- Promotions and Membership Page ---------- */
+
+.pm-page-sect-heading {
+    font-size: 4.3rem;
+    margin-top: 1rem; /* Adjust this value as needed to decrease the gap */
+}
+
+.packages-wrapper, .addons-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Ensure cards doesn't stay in one row */
+    justify-content: space-around;
+}
+
+.package-card, .addons-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Adjust the width to fit three cards side by side */
+    margin: 1rem; /* Adjusted margin for better spacing */
+    color: white;
+    border-radius: 2rem;
+    transition: 0.5s ease;
+    padding-bottom: 1em;
+}
+
+.package-title, .addons-card h1 {
+    font-size: 3rem;
+    color: white;
+    margin: 1rem 0rem; /* Adjust this value to change the spacing */
+}
+
+.package-card img, .addon-image {
+    max-width: 100%;
+    width: 100%; /* Ensure the image fits the card */
+    height: 21rem; /* Adjust the height to make the image smaller */
+    margin-bottom: 0.3rem;
+}
+
+.price-standard, .price-discount, .addons-card h2 {
+    font-size: 3.2rem;
+    margin: 2.3rem 0rem; /* Adjust this value to change the spacing */
+}
+
+.features-list .feature-item, .addon-feature-item {
+    font-size: 1.6rem;
+}
+
+.purchase-button, .add-on-purchase-button {
+    display: inline-block;
+    width: 10rem; /* Decreased the width */
+    height: 3rem; /* Decreased the height */
+    font-size: 1.7rem; /* Adjusted font size */
+    padding: 0rem; /* Adjusted padding */
+    margin: 0rem auto 0.5rem; /* Centered and adjusted bottom margin */
+    border-radius: 10%;
+    color: #F4F4F4;
+    background-color: red;
+    line-height: 3rem;
+}
+
+.purchase-button:hover, .add-on-purchase-button:hover {
+    background-color: forestgreen;
+}
+
+/* Slideshow Section For Promotions */
+
+.slideshow-container {
+    position: relative;
+    max-width: 80rem;
+    min-height: 50rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    margin-top: 1rem;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slide img {
+    width: 60%;
+    height: 60%;
+}
+
+input[name="slider"]{
+    display: none;
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0);
+    animation: slide-animation 15s infinite;
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+    animation: slide-animation-two 15s infinite;
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-200%);
+    animation: slide-animation-three 15s infinite;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.thumbnails img {
+    width: 10rem;
+    height: 7.5rem;
+    cursor: pointer;
+    margin: 0rem 1rem;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.thumbnails img:hover {
+    opacity: 1;
+}
+
+@keyframes slide-animation {
+    0%, 15% {
+        transform: translateX(0%); 
+    }
+    35%, 50% {
+        transform: translateX(-100%);
+    }
+    70%, 85% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-animation-two {
+    0%, 15% {
+        transform: translateX(-100%); 
+    }
+    35%, 50% {
+        transform: translateX(-200%); 
+    }
+    70%, 85% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-animation-three {
+    0%, 15% {
+        transform: translateX(-200%); 
+    }
+    35%, 50% {
+        transform: translateX(0%); 
+    }
+    70%, 85% {
+        transform: translateX(-100%); 
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+/* Select Type of Ticket Section */
+
+.ticket-type-container {
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ticket-type-container .pm-page-sect-heading {
+    margin-top: 4.3rem;
+    margin-bottom: 1rem;
+}
+
+.header-section {
+    text-align: center;
+    font-size: 4.6rem;
+    margin-bottom: 1rem; /* Reduced the bottom margin */
+}
+
+.toggle-container {
+    border: 0.2rem solid #1E2321;
+    border-radius: 1rem;
+    padding: 0.5rem; /* Reduced the padding */
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: white; /* Translucent background */
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.9);
+    width: auto; /* Adjusted width to auto */
+}
+
+.toggle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-text {
+    margin: 0.8em;
+    font-size: 2rem;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 6rem;
+    height: 3.4rem;
+    flex-basis: 35%;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0rem;
+    height: 0rem;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1E2321;
+    transition: background-color 0.4s ease;
+    border-radius: 3.4rem;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 2.6rem;
+    width: 2.6rem;
+    left: 0.4rem;
+    bottom: 0.4rem;
+    background-color: white;
+    transition: transform 0.4s ease;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: green;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(2.6rem);
+}
+
+.package-card {
+    height: 41.5rem; /* Adjust this value to change the height */
+    background-color: rgb(0, 69, 124); /* Translucent background */
+}
+
+.features-list {
+    width: 80%;
+    margin: 0rem auto;
+    padding: 0rem;
+    text-align: left;
+}
+
+.features-list .feature-item {
+    padding: 0.5rem 0rem; /* Adjust this value to change the padding */
+    border-bottom: 0.1rem solid white;
+}
+
+.features-list .feature-item:last-child {
+    margin-bottom: 1rem; /* Increase the distance to the Buy Now button */
+}
+
+.package-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Select Date Section */
+
+.date-selection-container {
+    padding: 2%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0.8rem;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 120rem;
+    margin: 2rem auto 0.5rem;
+}
+
+.date-selection-container .pm-page-sect-heading {
+    margin-bottom: 1rem;
+}
+
+#datepicker {
+    padding: 1%;
+    border: 0.2rem solid #00457C;
+    border-radius: 0.5rem;
+    width: calc(96%); 
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* override default styles of flatpickr library's calendar */
+.flatpickr-calendar {
+    left: 0 !important;
+    right: 0 !important;
+    margin: auto !important;
+}
+
+/* Select Number of Days Section */
+
+.days-selection-container {
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 120rem;
+    margin: 4rem auto 0.5rem;
+}
+
+.days-selection-container .pm-page-sect-heading {
+    margin-bottom: 2rem;
+}
+
+.days-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.day-option {
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.9); 
+}
+
+.day-option .circle {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #00457C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem auto 1rem;
+    font-size: 1.8rem;
+    transition: 0.5s ease;
+}
+
+.day-option .price {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.day-option .circle:hover {
+    background-color: forestgreen;
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgba(0, 200, 0, 0.9);
+}
+
+/* Select Number of Tickets Section */
+
+.ticket-selector-container {
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+    padding: 3rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 120rem;
+    margin: 0rem auto 0.5rem;
+}
+
+.ticket-selector-container .pm-page-sect-heading {
+    margin-bottom: 2rem;
+}
+
+.ticket-selector-container h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.ticket-counter-container {
+    display: flex;
+    align-items: center;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.9);
+    background-color: white; /* Translucent background */
+}
+
+.ticket-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ticket-counter span {
+    font-size: 3.5rem;
+    margin: 0rem 1.5rem;
+}
+
+.counter-button {
+    border: 0.2rem solid #007Bff;
+    border-radius: 50%;
+    background-color: white;
+    color: #007Bff;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.counter-button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+.ticket-count {
+    font-size: 2.4rem;
+}
+
+/* Select Type of Add-ons Section */
+
+.addon-options-container {
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+    padding: 2.5%;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    width: 100%;/* Adjust width to fit within padding */
+    margin: 0rem auto 1rem auto;
+}
+
+.addons-wrapper {
+    padding: 0% 2.5%; 
+}
+
+.addons-card {
+    background-color: rgba(0, 0, 0, 1.0); 
+    text-align: center;
+}
+
+.addons-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.addon-options-container .pm-page-sect-heading {
+    margin-bottom: 1rem; /* Adjust this value as needed to decrease the gap */
+}
+
+.addon-features-list {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+
+.addon-features-list .addon-feature-item {
+    padding: 0.5rem 0rem;
+    border-bottom: 0.1rem solid white;
+}
+
+.addon-features-list .addon-feature-item:last-child {
+    margin-bottom: 1rem;
+}
+
+/* ---------- Rides Page ---------- */
+
+/* Rides Section */
+
+#rides-cont {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#rides-cont #ride-info-panes-cont {
+    order: 2;
+    width: 100%;
+    transition: width 0.4s ease-in-out;
+}
+
+#rides-cont #ride-info-panes-cont h1 {
+    color: #010101;
+    font-size: 3rem;
+    margin-bottom: 0.8rem; /* 1 rem = 10px, rem is relative to the root element's aka html (top-level in document) font size */
+}
+
+#rides-cont #ride-info-panes-cont h3 {
+    color: #010101;
+    font-size: 2.4rem;
+}
+
+#rides-cont #ride-info-panes-cont p {
+    color: #949494;
+    font-size: 1.4rem;
+}
+
+#rides-cont #ride-info-panes-cont.collapse {
+    width: 0;
+}
+
+#rides-cont .ride-info-pane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    z-index: 1; /* a positive value positions this element on top of another element */
+    transition: width 0.4s ease-in-out;
+}
+
+/* overrode display property in #rides-cont .ride-info-pane as it had a higher specificity (id | class | type) i.e number in each column (|) was compared with each other */
+#rides-cont .ride-info-pane.hide {
+    display: none;
+}
+
+#rides-cont .ride-info-pane.collapse {
+    width: 0;
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-body {
+    width: 100%;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#rides-cont .ride-info-pane.collapse .ride-info-pane-body {
+    opacity: 0;
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-collapse-btn {
+    display: none;
+    background-image: url(../assets/img/ride-infopane-collapse-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -4.1%;
+    left: 50%;
+    right: 50%;
+    bottom: 100%;
+    border: 1px solid #C2C2C2;
+    margin: auto;
+    padding: 2.8rem 2rem; /* set padding value to the top and bottom AND left and right */
+    border-radius: 0rem 0.8rem 0.8rem 0rem; /* set border radius value to the top left, top right, bottom right and bottom left corners */
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+#rides-cont .ride-info-pane.collapse .ride-info-pane-collapse-btn {
+    background-image: url(../assets/img/ride-infopane-open-icon.png);
+    background-size: 1.6rem 1.6rem;
+}
+
+#rides-cont .ride-info-pane .ride-img {
+    width: 82%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* make image cover the entire container size EVEN IF the image stretches OR gets cut off at the edges */
+    padding-top: 56%; /* to maintain aspect ratio across every screen size, use this formula: (height / width) * 100% */
+    border-radius: 1.6rem;
+    margin: 2.4rem auto 0rem auto; /* set margin value to the top and bottom AND left and right */
+}
+
+#rides-cont .ride-info-pane #ride1-img {
+    background-image: url(../assets/img/ride1-carouseloffeels-thumbnail.jpg);
+}
+
+#rides-cont .ride-info-pane #ride2-img {
+    background-image: url(../assets/img/ride2-towerofheight-thumbnail.jpg);
+}
+
+#rides-cont .ride-info-pane #ride3-img {
+    background-image: url(../assets/img/ride3-circleoflife-thumbnail.jpg);
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-txtcontent {
+    padding: 2rem 3.2rem;
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-txtcontent .ride-info-pane-txtbox {
+    margin-bottom: 2.4rem;
+}
+
+#rides-cont .ride-info-pane .ride-icon {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0rem 0.4rem 0.4rem 0rem;
+    vertical-align: middle;
+}
+
+#rides-cont .ride-info-pane .ride-status-icon {
+    background-image: url(../assets/img/ride-status-icon.png);
+}
+
+#rides-cont .ride-info-pane .ride-wait-time-icon {
+    background-image: url(../assets/img/ride-wait-time-icon.png);
+}
+
+#rides-cont .ride-info-pane .ride-duration-icon {
+    background-image: url(../assets/img/ride-duration-icon.png);
+}
+
+#rides-cont .ride-info-pane .ride-weight-req-icon {
+    background-image: url(../assets/img/ride-weight-req-icon.png);
+}
+
+#rides-cont .ride-info-pane .ride-height-req-icon {
+    background-image: url(../assets/img/ride-height-req-icon.png);
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-txtcontent h3 {
+    display: inline-block;
+}
+
+#rides-cont .ride-info-pane .ride-info-pane-txtcontent p {
+    margin: 0.4rem 0rem 1.6rem;
+    line-height: 1.35;
+}
+
+#rides-cont .ride-info-pane .ride-status-txt.txt-color-open {
+    color: #44B678;
+}
+
+#rides-cont .ride-info-pane .ride-status-txt.txt-color-close {
+    color: #D93025;
+}
+
+#rides-cont .ride-info-pane hr {
+    border: 1px solid #DFDFDF;
+    margin: 1.6rem 0rem 3.2rem 0rem;
+}
+
+/* Themepark Image Container */
+
+#rides-cont #themepark-map-img-cont {
+    position: relative;
+    order: 1;
+    width: 100%;
+    /* z-index: auto (default) aka 0 is applied to this element and its descendants OR flex OR grid items */
+    background-image: url(../assets/img/cyberion-themepark-map.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* make image cover the entire container size EVEN IF the image stretches OR gets cut off at the edges */
+    padding-top: 56.25%;
+    transition: width 0.35s ease-in-out;
+}
+
+#rides-cont #themepark-map-img-cont.collapse {
+    width: 100%;
+}
+
+#rides-cont #themepark-map-img-cont #ride-location-pin-icon-cont {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#rides-cont #themepark-map-img-cont .ride-location-pin-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: #D3D3D3;
+    border-radius: 50%;
+    text-align: center;
+    padding: 1rem 0rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 0; /* line-height: normal (default) sets the line height of the icon text based on the browser the user is using e.g Chrome BUT it also depends on the font family that the developer chose */
+    transition: left 0.25s ease-in-out, background-color 0.45s ease-in-out; /* @properties: css property name to apply transition to, transition duration, transition curve e.g linear, ease-in-out */
+    cursor: pointer;
+}
+
+#rides-cont #themepark-map-img-cont .ride-location-pin-icon.active {
+    background-color: #FFF700;
+}
+
+#rides-cont #themepark-map-img-cont #ride1-location-pin-icon {
+    top: 28%;
+    left: 29%;
+}
+
+#rides-cont #themepark-map-img-cont #ride2-location-pin-icon {
+    top: 33.5%;
+    left: 44.5%;
+}
+
+#rides-cont #themepark-map-img-cont #ride3-location-pin-icon {
+    top: 19%;
+    left: 82%;
+}
+
+/* ---------- Footer ---------- */
+
+#footer {
+    background-color: #0356A8;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-bottom: 0.1rem solid white;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 0.4rem 2rem;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.4rem 2rem 2rem 2rem;
+}
+
+.social-media a {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1.6rem;
+}
+
+.social-media img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer-info {
+    padding-top: 0.8rem;
+    text-align: center;
+}
+
+.footer-info a {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.footer-info p {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0.5rem 0rem;
+}
+
+/* ---------- Responsive Styles ---------- */
+
+/* Mobile (360px and up to 768px) */
+
+@media only screen and (min-width: 360px){
+    /* ---------- Home Page ---------- */
+
+    #navbar .container:has(.wrapper .menu input:checked) ul {
+        display: flex;
+        background-color: rgba(0, 0, 32, 0.86);
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navbar ul li {
+        font-size: 2.4rem;
+    }
+
+    #navbar ul li a{
+        color: white;
+    }
+
+    .links {
+        height: 100%;
+    }
+
+    #navbar {
+        z-index: 3;
+    }
+
+    .menu {
+        right: 3rem;
+    }
+
+    #main-attractions-section h3 {
+        margin-bottom: 2rem;
+    }
+
+    .accordion-label {
+        font-size: 1.8rem;
+    }
+
+    .accordion-content p {
+        font-size: 1.3rem;
+    }
+
+    /* ---------- Promotions and Membership Page ---------- */
+
+    .package-card {
+        height: auto;
+        padding-bottom: 1em;
+    }
+
+    .day-option .circle {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .day-option .price {
+        font-size: 1.2rem;
+    }
+
+    .packages-wrapper, .addons-wrapper {
+        flex-wrap: wrap;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer-links a{
+        font-size: 2rem;
+    }
+
+    .footer-info a, .footer-info p {
+        font-size: 0.75rem;
+    }
+
+    .social-media{
+        padding-left: 2rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* Tablet (768px and up to 1280px) */
+
+@media only screen and (min-width: 768px){
+    /* ---------- Home Page ---------- */
+
+    .homepage-sect-heading {
+        font-size: 4rem;
+        padding: 3%;
+    }
+
+    #navbar .container:has(.wrapper .menu input:checked) ul {
+        display: flex;
+        background-color: rgba(0, 0, 32, 0.86);
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navbar ul li {
+        font-size: 2.4rem;
+    }
+
+    #navbar ul li a {
+        color: white;
+    }
+
+    .links{
+        height: 100%;
+    }
+
+    #navbar{
+        z-index: 3;
+    }
+
+    .menu{
+        right: 3rem;
+    }
+
+    .grid {
+        height: 43%;
+        padding: 0rem 2rem;
+    }
+
+    article {
+        width: 36rem;
+        height: 42rem;
+    }
+
+    article {
+        margin: 0rem 2rem;
+    }
+
+    article .text h4 {
+        font-size: 3rem;
+    }
+
+    article .text p {
+        font-size: 2.4rem;
+    }
+
+    article .text a {
+        font-size: 1.6rem;
+    }
+
+    .reviews {
+        width: 75rem;
+        padding: 0rem 1.8rem;
+    }
+
+    .review-box {
+        width: 29%;
+    }
+
+    .review-box h6 {
+        font-size: 2rem;
+    }
+
+    .review-box p {
+        font-size: 2.4rem;
+    }
+
+    .review-box img {
+        margin-right: 0.4rem;
+    }
+    
+    .review-box h6 {
+        margin-bottom: 0rem;
+    }
+    
+    .accordion-label {
+        font-size: 2.5rem;
+    }
+
+    .accordion-content p {
+        font-size: 2rem;
+    }
+
+    .accordion-container {
+        width: 70rem;
+    }
+
+    /* ---------- Promotions and Membership Page ---------- */
+
+    .slide img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .toggle-switch {
+        flex-basis: auto;
+    }
+
+    .package-card {
+        margin: 0.5rem;
+    }
+
+    #datepicker {
+        font-size: 1.6rem;
+    }
+
+    .day-option .price {
+        font-size: 2rem;
+    }
+
+    .day-option .circle {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .packages-wrapper, .addons-wrapper {
+        flex-wrap: nowrap; /* Ensure cards stay in one row */
+    }
+
+    .package-card, .addons-card {
+        width: 30%;
+    }
+
+    .package-card img, .addon-image {
+        height: 20rem; /* Adjust the height to make the image smaller */
+    }
+
+    .features-list .feature-item, .addon-feature-item {
+        font-size: 1.8rem;
+    }
+
+    /* ---------- Rides Page ---------- */
+
+    #rides-cont #ride-info-panes-cont h1 {
+        font-size: 3.6rem;
+    }
+
+    #rides-cont #ride-info-panes-cont h3 {
+        font-size: 3rem;
+    }
+
+    #rides-cont #ride-info-panes-cont p {
+        font-size: 1.8rem;
+        margin-top: 0.6rem;
+    }
+
+    #rides-cont .ride-info-pane .ride-img {
+        width: 91.5%;
+        margin: 4rem auto 0rem auto;
+    }
+
+    #rides-cont #themepark-map-img-cont .ride-location-pin-icon {
+        width: 3.6rem;
+        height: 3.6rem;
+        font-size: 1.8rem;
+        padding: 1.8rem 0rem;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride1-location-pin-icon {
+        top: 30%;
+        left: 29.5%;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride2-location-pin-icon {
+        top: 35.5%;
+        left: 45%;
+    }
+    
+    #rides-cont #themepark-map-img-cont #ride3-location-pin-icon {
+        top: 21.5%;
+        left: 82.5%;
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer-container {
+        font-size: 2rem;
+    }
+
+    .footer-links{
+        display: flex;
+    }
+    
+    .footer-links a {
+        font-size: 2.5rem;
+    }
+
+    .social-media{
+        padding-bottom: 3rem;
+        padding-left: 0.5rem;
+        display: flex;
+        gap: 2rem;
+    }
+    
+    .social-media img {
+        width: 3rem;
+        height: 3rem;
+        margin: 1.4rem;
+    }
+}
+
+/* Laptop (1280px and up to 1920px) */
+
+@media only screen and (min-width: 1280px){
+    /* ---------- Home Page ---------- */
+
+    .homepage-sect-heading {
+        font-size: 7rem;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    #navbar ul{
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .homepage-text {
+        width: fit-content;
+    }
+
+    .homepage-text h1 {
+        font-size: 8rem;
+    }
+
+    .book-link {
+        font-size: 3rem;
+    }
+
+    .grid {
+        justify-content: center;
+        height: 60%;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    article {
+        height: 40rem;
+    }
+
+    article .text {
+        height: 20.4rem;
+    }
+
+    article .text h4 {
+        font-size: 4rem;
+    }
+
+    article .text p {
+        font-size: 2rem;
+    }
+
+    article .text a {
+        font-size: 2.1rem;
+    }
+
+    /* ---------- Promotions and Membership Page ---------- */
+
+    #datepicker {
+        font-size: 1.8rem;
+    }
+
+    .package-card img, .addon-image {
+        height: 32rem;
+    }
+
+    /* ---------- Rides Page ---------- */
+
+    #rides-cont {
+        height: 100vh; /* take full height of user's viewport aka screen regardless of the page content */
+    }
+
+    #rides-cont #ride-info-panes-cont h1 {
+        font-size: 3.4rem;
+    }
+    
+    #rides-cont #ride-info-panes-cont h3 {
+        font-size: 2.8rem;
+    }
+    
+    #rides-cont #ride-info-panes-cont p {
+        font-size: 1.6rem;
+    }
+
+    #rides-cont {
+        flex-direction: row;
+    }
+
+    #rides-cont #ride-info-panes-cont {
+        order: 1;
+        width: 32%;
+    }
+
+    #rides-cont .ride-info-pane {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #rides-cont .ride-info-pane .ride-img {
+        width: 84.5%;
+        margin: 3rem auto 0rem auto;
+    }
+
+    #rides-cont .ride-info-pane .ride-info-pane-collapse-btn {
+        display: block;
+        top: 50%;
+        left: 100%;
+        right: 0%;
+        padding: 1.8rem 1.4rem;
+        transform: rotate(0deg);
+    }
+
+    #rides-cont .ride-info-pane.collapse .ride-info-pane-collapse-btn {
+        background-size: 1.6rem 1.6rem;
+    }
+
+    #rides-cont #themepark-map-img-cont .ride-location-pin-icon {
+        width: 4.4rem;
+        height: 4.4rem;
+        padding: 2.2rem 0rem;
+        font-size: 2.4rem;
+    }
+
+    #rides-cont #themepark-map-img-cont {
+        width: 68%;
+        order: 2;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride1-location-pin-icon {
+        top: 35.5%;
+        left: 27.5%;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride2-location-pin-icon {
+        top: 39.5%;
+        left: 44.5%;
+    }
+    
+    #rides-cont #themepark-map-img-cont #ride3-location-pin-icon {
+        top: 29%;
+        left: 86%;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .social-media{
+        padding: 0.4rem 4rem 5rem 2rem;
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+
+    .footer-info a, .footer-info p{
+        font-size: 1rem;
+    }
+
+    .footer-links{
+        flex-direction: row;
+        gap:2rem;
+    }
+
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
+
+/* Desktop (1920px and above) */
+
+@media only screen and (min-width: 1920px){
+    /* ---------- Navigation Bar ---------- */
+
+    #navbar .container:has(.wrapper .menu input:checked) ul {
+        display: flex;
+        background-color: rgba(0, 0, 32, 0.86);
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navbar ul li {
+        font-size: 2.4rem;
+    }
+
+    #navbar ul li a {
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    .links{
+        height: 100%;
+    }
+
+    #navbar{
+        z-index: 3;
+    }
+
+    .menu{
+        right: 3rem;
+    }
+    /* ---------- Home Page ---------- */
+
+    .homepage-sect-heading {
+        font-size: 6rem;
+    }
+
+    .homepage-text h1 {
+        font-size: 6.7rem;
+    }
+
+    .book-link {
+        font-size: 2.2rem;
+    }
+
+    .grid {
+        height: 55%;
+    }
+
+    article .text p, .accordion-content p {
+        font-size: 3rem;
+    }
+
+    article {
+        width: 55rem;
+        height: 53rem;
+    }
+
+    article .text h4 {
+        font-size: 4rem;
+    }
+
+    article .text a {
+        font-size: 2.1rem;
+    }
+
+    .visitor-reviews-container .homepage-sect-heading {
+        padding-top: 0%;
+        padding-bottom: 3%;
+    }
+
+    .reviews {
+        width: 182rem;
+    }
+
+    .review-box {
+        width: 31%;
+    }
+
+    .review-box p {
+        font-size: 3rem;
+    }
+
+    .review-box h6 {
+        font-size: 2.4rem;
+    }
+
+    .accordion-container {
+        width: 80rem;
+    }
+
+    .accordion-label {
+        font-size: 3.5rem;
+    }
+
+    /* ---------- Promotions and Membership Page ---------- */
+
+    .slideshow-container {
+        max-width: 100rem;
+    }
+
+    .slide img {
+        width: 90%;
+        height: 80%;
+    }
+
+    .day-option .price {
+        font-size: 3rem;
+    }
+
+    .day-option .circle {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .package-title, .addons-card h1 {
+        font-size: 4rem;
+    }
+
+    .package-card img, .addon-image {
+        height: 40rem;
+    }
+
+    .price-standard, .price-discount, .addons-card h2 {
+        font-size: 4.2rem;
+    }
+
+    .features-list .feature-item, .addon-feature-item {
+        font-size: 2.8rem;
+    }
+
+    .purchase-button, .add-on-purchase-button {
+        width: 15rem; /* Decreased the width */
+        height: 4rem;
+        font-size: 2.7rem; /* Adjusted font size */
+        line-height: 4rem;
+    }
+
+    /* ---------- Rides Page ---------- */
+
+    #rides-cont #ride-info-panes-cont h1 {
+        font-size: 3.6rem;
+    }
+    
+    #rides-cont #ride-info-panes-cont h3 {
+        font-size: 2.8rem;
+    }
+    
+    #rides-cont #ride-info-panes-cont p {
+        font-size: 1.6rem;
+    }
+
+    #rides-cont .ride-info-pane {
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+
+    #rides-cont .ride-info-pane .ride-img {
+        width: 89.5%;
+        margin: 3.4rem auto 0rem auto;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride1-location-pin-icon {
+        top: 37%;
+        left: 28.5%;
+    }
+
+    #rides-cont #themepark-map-img-cont #ride2-location-pin-icon {
+        top: 41.5%;
+        left: 45%;
+    }
+    
+    #rides-cont #themepark-map-img-cont #ride3-location-pin-icon {
+        top: 30%;
+        left: 86.5%;
+    }
+
+    #rides-cont #themepark-map-img-cont.collapse #ride1-location-pin-icon {
+        top: 34%;
+        left: 31%;
+    }
+
+    #rides-cont #themepark-map-img-cont.collapse #ride2-location-pin-icon {
+        top: 40%;
+        left: 46%;
+    }
+
+    #rides-cont #themepark-map-img-cont.collapse #ride3-location-pin-icon {
+        top: 26.5%;
+        left: 83.5%;
+    }
+    
+    /* ---------- Footer ---------- */
+
+    .footer-links{
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .footer-links a {
+        font-size: 3.5rem;
+        display: flex;
+    }
+    
+    .social-media img {
+        height: 4rem;
+        width: 4rem;
+        margin: 1.8rem;
+        flex-direction: row-reverse;
+    }
+
+    .social-media{
+        padding: 0.4rem 5rem 5rem 2rem;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .footer-info a, .footer-info p{
+        font-size: 1.5rem;
+    }
+
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
