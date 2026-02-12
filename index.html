@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Cyberion Theme Park's Home Page Heading Information -->
+<head>
+    <!-- 
+        Meta Tags Section:
+            - Unicode Character Encoding Standard
+            - Viewport (Default Setting: Mobile First) sets width of the web
+            page to be the same as a user device's screen width and sets initial
+            zoom level for when the page is first loaded by the browser
+            - Site Description and Author boosts search engines' indexing
+            as part of SEO
+    -->
+    <meta charset="UTF-8">
+    <meta name="description" content="...">
+    <meta name="author" content="Cyberion Theme Park">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyberion Theme Park - Home</title>
+
+    <!-- Import external stylesheet to customize web page's appearance and feel -->
+    <link type="text/css" rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <!-- Import date picker library to use its functions in the web page -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Import apple touch icon as a visual representation of the web page
+    on a iOS user's home screen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <!-- Import android chrome icon as a visual representation of the web page
+    when chrome is accessed by a user's android phone -->
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/img/android-chrome-512x512.png">
+    <!-- Import favicons as a visual representation of the web page when being
+    accessed by a user's browser or as a taskbar shortcut -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="wrapper">
+                <a href="./index.html">
+                    <div class="logo">
+                        <img src="./assets/img/cyberion-themepark-logo.webp" alt="Cyberion Theme Park logo">
+                    </div>
+                </a>
+                    <!-- use label element to toggle the checked and unchecked functionality of checkbox -->
+                    <label class="menu">
+                        <input type="checkbox" class="close">
+                    </label>
+                </div>
+            <div class="links">
+                <ul class="headings">
+                    <li><a href="./promotionsandmemberships.html">Promotions & Memberships</a></li>
+                    <li><a href="./rides.html">Attractions</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="./promotionsandmemberships.html">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Header -->
+    <header id="video-header">
+        <div class="video-container">
+            <video autoplay muted plays-incline controls class="background-video">
+                <source src="./assets/img/cyberion-themepark-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="homepage-text">
+            <h1>Cyberion themepark</h1>
+            <a href="#main-attractions-section" class="book-link">Explore now ></a>
+        </div>
+    </header>
+
+    <div id="bg-gradient">
+
+        <!-- Main Attractions Section -->
+        <section id="main-attractions-section">
+            <div class="main-attractions-container">
+                <h3 class="homepage-sect-heading">Main attractions</h3>
+                <div class="grid">
+                    <article class="ridescard1">
+                        <div class="img1"></div>
+                        <div class="text">
+                            <h4>Carousel of feels</h4>
+                            <p>Experience a fun and family friendly ride.</p>
+                            <a href="./rides.html#ride1-info-pane">Check out more</a>
+                        </div>
+                    </article>
+                    <article class="ridescard2">
+                        <div class="img2"></div>
+                        <div class="text">
+                            <h4>Tower of height</h4>
+                            <p>A thrilling journey that will leave you speechless, both on the way up and down.</p>
+                            <a href="#">Check out more</a>
+                        </div>
+                    </article>
+                    <article class="ridescard3">
+                        <div class="img3"></div>
+                        <div class="text">
+                            <h4>circle of life</h4>
+                            <p>Enjoy the spectacular view as you sit on this low intensity ride.</p>
+                            <a href="#">Check out more</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Visitor Reviews Section -->
+        <section id="visitor-reviews-section">
+            <div class="visitor-reviews-container">
+                <h3 class="homepage-sect-heading">Our Visitor Reviews&#129395</h3>
+                <div class="reviews">
+                    <div class="review-box">
+                        <img src="./assets/img/reviewer1-jennifer-thumbnail.jpg" alt="Image of Jennifer">
+                        <h6>Jennifer &#127775 4.5</h6>
+                        <p>We had an amazing time at Cyberion Theme Park!</p>
+                    </div>
+                    <div class="review-box">
+                        <img src="./assets/img/reviewer2-victor-thumbnail.jpg" alt="Image of Victor">
+                        <h6>Victor &#127775 5.0</h6>
+                        <p>Cyberion Theme Park exceeded our expectations! The themed areas were beautifully designed and the live performances were top-notch.</p>
+                    </div>
+                    <div class="review-box">
+                        <img src="./assets/img/reviewer3-janetan-thumbnail.jpg" alt="Image of Jane Tan">
+                        <h6>Jane Tan &#127775 5.0</h6>
+                        <p>The attractions at Wonderland Theme Park were fantastic and offered a good mix of excitement and entertainment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions Section -->
+        <section id="faq-section">  
+            <div class="faq-container">
+                <h3 class="homepage-sect-heading">Frequently Asked Questions</h3>
+                <div class="accordion-container">
+                    <input type="checkbox" id="accordion-1" class="faqcheckb" checked>
+                    <label for="accordion-1" class="accordion-label">When are you Open?</label>
+                    <div class="accordion-content">
+                        <p>Our operating hours are from 10 AM to 10 PM daily.</p>
+                    </div>
+                </div>
+                <div class="accordion-container">
+                    <input type="checkbox" id="accordion-2" class="faqcheckb">
+                    <label for="accordion-2" class="accordion-label">How can I book tickets?</label>
+                    <div class="accordion-content">
+                        <p>You can book tickets online through our website or at the entrance.</p>
+                    </div>
+                </div>
+                <div class="accordion-container">
+                    <input type="checkbox" id="accordion-3" class="faqcheckb">
+                    <label for="accordion-3" class="accordion-label">What attractions are available?</label>
+                    <div class="accordion-content">
+                        <p>We have Cyberion rollercoasters, Cyberion castle, and more.</p>
+                    </div>
+                </div>
+                <div class="accordion-container">
+                    <input type="checkbox" id="accordion-4" class="faqcheckb">
+                    <label for="accordion-4" class="accordion-label">Am I allowed to bring in a skate scooter to Cyberion themepark?</label>
+                    <div class="accordion-content">
+                        <p>Only Electric Convenience Vehicles are permitted inside the park.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-links">
+                        <a href="./promotionsandmemberships.html">Promotions & Memberships</a>
+                        <a href="./rides.html">Attractions</a>
+                        <a href="#">Dining</a>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.flaticon.com/free-icons/facebook" title="Facebook icons created by Freepik - Flaticon">
+                            <img src="./assets/img/facebook-logo-icon.png" alt="Facebook Logo">
+                        </a>
+                        <a href="https://www.flaticon.com/free-icons/instagram-logo" title="Instagram logo icons created by Pixel perfect - Flaticon">
+                            <img src="./assets/img/instagram-logo-icon.png" alt="Instagram Logo">
+                        </a>
+                        <a href="https://www.flaticon.com/free-icons/tiktok" title="tiktok icons" title="Tiktok icons created by cobynecz - Flaticon">
+                            <img src="./assets/img/tiktok-logo-icon.png" alt="Tiktok Logo">
+                        </a>
+                        <a href="https://www.flaticon.com/free-icons/brands-and-logotypes" title="brands and logotypes icons created by Freepik - Flaticon">
+                            <img src="./assets/img/twitter-logo-icon.png" alt="Twitter Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <a href="#">Privacy Policy & Terms of Use</a>
+                    <p>Copyright © Cyberion Theme Park Singapore</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body> 
+</html>
